@@ -1,0 +1,14 @@
+<launch>
+  
+  <param name="use_sim_time" value="true" />
+  <arg name="bagfile"   default="2022-08-17-16-26-44.bag"/>
+  <arg name="loop"      default=""/>
+  <arg name="play_rate" default="-r 0.1"/>
+  <node pkg="rosbag" type="play" name="rosbag" args="--clock $(arg bagfile) $(arg loop) $(arg play_rate)" />
+
+  <node pkg="vi_hand_segmentation" type="main.py" name="vi_hand_segmentaion" output="screen"/>
+
+</launch>
+
+
+
